@@ -51,6 +51,12 @@ body {
   cursor: pointer;
   transition: all 0.3s;
 }
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
 .card-btn:hover {
   background-color: #f86fa4;
 }
