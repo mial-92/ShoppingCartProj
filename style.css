@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .box {
   width: 600px;
   height: 600px;
@@ -5,3 +6,67 @@
 .card {
   background-color: blue;
 }
+=======
+
+html,
+body,
+* {
+  font-size: 10px;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: #f3e9e2;
+  font-weight: 400;
+  font-style: normal;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: #c0d0d4;
+  color: #e6eef3;
+  width: 36rem;
+  height: 55rem;
+  margin: 2.5rem 5rem;
+  border-radius: 0.8rem;
+  align-items: center;
+}
+.card-title {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 600;
+}
+.card-img {
+  width: 90%;
+  height: 70%;
+  object-fit: cover;
+  border-radius: 0.8rem;
+}
+.card-price {
+  margin: 0;
+  font-size: 25px;
+}
+.card-btn {
+  height: 4rem;
+  padding: 0 1.6rem;
+  background-color: #eccea6;
+  color: #edf0ff;
+  border: 1px solid #eccea6;
+  border-radius: 0.4rem;
+  font-size: 1.4rem;
+  font-weight: 600px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.card-btn:hover {
+  background-color: #d8ae88;
+}
+>>>>>>> 0d17ffa6c0182ea9cb30921d4a67ccd69be6e335
