@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 const box = document.querySelector(".box");
 box.style.backgroundColor = "red";
 const header = document.getElementById("color");
@@ -48,7 +47,6 @@ cartBUttons.forEach(function(button) {
     x++;
     console.log("Added to cart.");});
 });
-=======
 let cart = [
     {Name: "Burberry: For Women Eau De Parfum(3.4 OZ)", Price: "145.00", stock: "73"},
     {Name: "Coach: Floral Eau De Parfum(3.0 OZ)", Price: "129.00", stock: "86"},
@@ -71,4 +69,3 @@ let cart = [
     {Name: "Ella's poopy shoe", Price: "12.26", stock: "2"},
     {Name: "Olivia Lu", Price: "14.99", stock: "1"},
 ]
->>>>>>> 0d17ffa6c0182ea9cb30921d4a67ccd69be6e335
