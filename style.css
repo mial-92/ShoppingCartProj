@@ -79,11 +79,12 @@ body {
   transition: all 0.3s;
 }
 .container {
+  border:1px solid #fff8ef;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
 }
 .card-btn:hover {
-  background-color: #d8ae88;
+  background-color: #ebc19d;
 }
