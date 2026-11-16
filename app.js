@@ -17,50 +17,44 @@ let item = [
     {Name: "Valentino: Donna Born In Roma Eau De Parfum(3.4 OZ)", Price: "180.99", Stock: "11", img:"photos/valentino2.webp"},
     {Name: "Versace: Bright Crystal Eau De Toilette(3.0 OZ)", Price: "128.99", Stock: "43", img:"photos/versace.webp"},
     {Name: "Yves Saint Laurent: Mon Paris Eau De Parfum(3.0 OZ)", Price: "162.99", Stock: "65", img:"photos/Yves Saint Laurent.avif"},
-    {Name: "Ella's poopy shoe", Price: "12.26", Stock: "2", img:"photos/ella.jpg"},
-    {Name: "Olivia Lu", Price: "14.99", Stock: "1", img:"photos/liverbee.jpg"}
+    {Name: "Ella's poopy shoe", Price: "12.26", Stock: "2", img:"photos/zella.jpg"},
+    {Name: "Olivia Lu", Price: "14.99", Stock: "1", img:"photos/zliverbee.jpg"}
 ]
+
 const container = document.querySelector(".container");
 function inject(item) {
-    container.insertAdjacentHTML(
-      "beforeend",
-        `<div class="card">
-          <h2 class="card-title">${item.Name}</h2>
-          <img class="card-img" src="${item.img}" alt="${item.img}">
-          <b><p class="card-price">$${item.Price}</p></b>
-          <p>Stock: ${item.Stock}</p>
-          <button class="card-btn">Add To Cart</button>
-      </div> `
+  container.insertAdjacentHTML(
+    "beforeend",
+      `<div class="card" data-item="Added to Cart">
+        <h2 class="card-title">${item.Name}</h2>
+        <img class="card-img" src="${item.img}" alt="${item.img}">
+        <b><p class="card-price">$${item.Price}</p></b>
+        <p>Stock: ${item.Stock}</p>
+        <button class="card-btn">Add To Cart</button>
+    </div> `
   );
 }
 item.forEach(inject);
 
+const buttons = document.querySelectorAll("button");
+buttons.forEach((button) =>
+  button.addEventListener("click", function (event) {
+    console.log(event.target.closest(".card").getAttribute("data-item"));
+  }),
+);
 /* 
 const cartButtons = document.querySelectorAll(".add-cart");
-cartBUttons.forEach(function(button) {
+cartButtons.forEach(function(button) {
     addEventListener("click", function () {
     x++;
     console.log("Added to cart.");});
 });
- */
-/* const box = document.querySelector(".box");
-box.style.backgroundColor = "red";
+
+const box = document.querySelector(".box");
+box.style.backgroundColor = "white";
 const header = document.getElementById("color");
 const btn = document.querySelector("#btn");
 let x = 0;
-
-function inject(item) {
-  const container = document.querySelector(".container");
-  container.insertAdjacentHTML(
-    "beforeend",
-    `<div class="card">
-        <h2 class="card-header">${item.name}</h2>
-        <img src="${item.img}" alt="" />
-        <p>filler filler filler</p>
-      </div> `,
-  );
-}
-inject("me");
 
 btn.addEventListener("click", function () {
   x++;
