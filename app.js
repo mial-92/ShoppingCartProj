@@ -20,29 +20,30 @@ let item = [
     {Name: "Ella's poopy shoe", Price: "12.26", Stock: "2", img:"photos/ella.jpg"},
     {Name: "Olivia Lu", Price: "14.99", Stock: "1", img:"photos/liverbee.jpg"}
 ]
+const container = document.querySelector(".container");
 function inject(item) {
-  const container = document.querySelectorAll(".container");
     container.insertAdjacentHTML(
-        "beforeend",
-    `<div class="card">
-        <h2 class="card-title">${item.Name}</h2>
-        <img 
-        class="card-img"
-        src="${item.img}" 
-        alt="${item.img}"  />
+      "beforeend",
+        `<div class="card">
+          <h2 class="card-title">${item.Name}</h2>
+          <img class="card-img" src="${item.img}" alt="${item.img}">
+          <b><p class="card-price">$${item.Price}</p></b>
+          <p>Stock: ${item.Stock}</p>
+          <button class="card-btn">Add To Cart</button>
       </div> `
   );
 }
-items.forEach(inject);
+item.forEach(inject);
 
-const cartBUttons = document.querySelectorAll(".add-cart");
+/* 
+const cartButtons = document.querySelectorAll(".add-cart");
 cartBUttons.forEach(function(button) {
     addEventListener("click", function () {
     x++;
     console.log("Added to cart.");});
 });
-
-const box = document.querySelector(".box");
+ */
+/* const box = document.querySelector(".box");
 box.style.backgroundColor = "red";
 const header = document.getElementById("color");
 const btn = document.querySelector("#btn");
@@ -65,4 +66,4 @@ btn.addEventListener("click", function () {
   x++;
   rgb();
 });
-
+ */
