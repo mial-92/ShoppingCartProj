@@ -17,8 +17,8 @@ let item = [
     {Name: "Valentino: Donna Born In Roma Eau De Parfum(3.4 OZ)", Price: "180.99", Stock: "11", img:"photos/valentino2.webp"},
     {Name: "Versace: Bright Crystal Eau De Toilette(3.0 OZ)", Price: "128.99", Stock: "43", img:"photos/versace.webp"},
     {Name: "Yves Saint Laurent: Mon Paris Eau De Parfum(3.0 OZ)", Price: "162.99", Stock: "65", img:"photos/Yves Saint Laurent.avif"},
-    {Name: "Ella's poopy shoe", Price: "12.26", Stock: "2", img:"photos/zella.jpg"},
-    {Name: "Olivia Lu", Price: "14.99", Stock: "1", img:"photos/zliverbee.jpg"}
+    {Name: "Ella's poopy shoe", Price: "0.02", Stock: "2", img:"photos/zella.jpg"},
+    {Name: "Olivia Bee", Price: "52.66", Stock: "1", img:"photos/zliverbee.jpg"}
 ]
 
 const container = document.querySelector(".container");
@@ -36,12 +36,22 @@ function inject(item) {
 }
 item.forEach(inject);
 
+function showCart() {
+  document.querySelector(".pop").style.display = "flex";
+}
+showCart();
+
+
+
+let Cart = 0;
 const buttons = document.querySelectorAll("button");
 buttons.forEach((button) =>
   button.addEventListener("click", function (event) {
     console.log(event.target.closest(".card").getAttribute("data-item"));
-  }),
+  })
 );
+
+
 /* 
 const cartButtons = document.querySelectorAll(".add-cart");
 cartButtons.forEach(function(button) {
@@ -54,10 +64,10 @@ const box = document.querySelector(".box");
 box.style.backgroundColor = "white";
 const header = document.getElementById("color");
 const btn = document.querySelector("#btn");
-let x = 0;
+
 
 btn.addEventListener("click", function () {
-  x++;
+
   rgb();
 });
  */
