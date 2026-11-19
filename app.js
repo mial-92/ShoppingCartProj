@@ -20,9 +20,8 @@ let item = [
     {Name: "Ella's poopy shoe", Price: "0.02", Stock: "2", img:"photos/zella.jpg"},
     {Name: "Olivia Bee", Price: "52.66", Stock: "1", img:"photos/zliverbee.jpg"}
 ]
-
-const container = document.querySelector(".container");
 let Cart=[];
+const container = document.querySelector(".container");
 function inject(item) {
   container.insertAdjacentHTML(
     "beforeend",
@@ -38,8 +37,13 @@ function inject(item) {
     </div> `
   );
 }
-item.forEach(inject);
-
+document.querySelector("form").addEventListener("submit",
+  function(event){
+    event.preventDefault();
+    document.querySelector("#coupon").value;
+    console.log(x);
+    x.value = "";
+});
 
 function showCart() {
   document.querySelector(".pop").style.display = "flex";
