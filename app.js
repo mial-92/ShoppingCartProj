@@ -22,6 +22,7 @@ let item = [
 ]
 
 const container = document.querySelector(".container");
+let Cart=[];
 function inject(item) {
   container.insertAdjacentHTML(
     "beforeend",
@@ -30,44 +31,16 @@ function inject(item) {
         <img class="card-img" src="${item.img}" alt="${item.img}">
         <b><p class="card-price">$${item.Price}</p></b>
         <p>Stock: ${item.Stock}</p>
-        <button class="1">+</button>
+      <div class="button-container">
+        <button class="plus">+</button>
+        <button class="minus">-</button>
+        </div>
     </div> `
   );
 }
 item.forEach(inject);
 
-let Cart=[];
+
 function showCart() {
   document.querySelector(".pop").style.display = "flex";
 }
-showCart();
-
-/* 
-
-const buttons = document.querySelectorAll("button");
-buttons.forEach((button) =>
-  button.addEventListener("click", function (event) {
-    console.log(event.target.closest(".card").getAttribute("data-item"));
-  })
-);
- */
-
-/* 
-const cartButtons = document.querySelectorAll(".add-cart");
-cartButtons.forEach(function(button) {
-    addEventListener("click", function () {
-    x++;
-    console.log("Added to cart.");});
-});
-
-const box = document.querySelector(".box");
-box.style.backgroundColor = "white";
-const header = document.getElementById("color");
-const btn = document.querySelector("#btn");
-
-
-btn.addEventListener("click", function () {
-
-  rgb();
-});
- */

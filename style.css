@@ -72,19 +72,18 @@ body {
 .button-container{
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;}
-
-.card-btn {
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.button-container button{
+  width: 4rem;
   height: 3rem;
-  padding: 0 1.6rem;
   background-color: #eccea6;
-  color: #edf0ff;
-  border: 1px solid #eccea6;
-  border-radius: 0.4rem;
-  font-size: 1.4rem;
-  font-weight: 600px;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 2rem;
   cursor: pointer;
-  transition: all 0.3s;
 }
 .container {
   border:1px solid #fff8ef;
