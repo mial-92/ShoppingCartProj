@@ -22,7 +22,6 @@ let item = [
 ]
 
 const container = document.querySelector(".container");
-let Cart=[];
 function inject(item) {
   container.insertAdjacentHTML(
     "beforeend",
@@ -40,15 +39,17 @@ function inject(item) {
 }
 item.forEach(inject);
 
+let Cart=[];
 
+
+
+function showCart() {
+  document.querySelector(".pop").style.display = "flex";
+}
+/* 
 document.querySelector("form").addEventListener("submit", function(event){
     event.preventDefault();
     document.querySelector("#coupon").value;
     console.log(x);
     x.value = "";
-});
-
-function showCart() {
-  document.querySelector(".pop").style.display = "flex";
-}
-showCart
+}); */
