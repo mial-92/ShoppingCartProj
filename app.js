@@ -21,6 +21,7 @@ let item = [
     {Name: "Olivia Bee", Price: "52.66", Stock: "1", img:"photos/zliverbee.jpg"}
 ]
 
+let Cart=[];
 const container = document.querySelector(".container");
 function inject(item) {
   container.insertAdjacentHTML(
@@ -29,7 +30,6 @@ function inject(item) {
         <h2 class="card-title">${item.Name}</h2>
         <img class="card-img" src="${item.img}" alt="${item.img}">
         <b><p class="card-price">$${item.Price}</p></b>
-        <p>Stock: ${item.Stock}</p>
       <div class="button-container">
         <button class="plus">+</button>
         <button class="minus">-</button>
@@ -38,10 +38,6 @@ function inject(item) {
   );
 }
 item.forEach(inject);
-
-let Cart=[];
-
-
 
 function showCart() {
   document.querySelector(".pop").style.display = "flex";
