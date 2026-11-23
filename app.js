@@ -23,7 +23,7 @@ let item = [
 
 let Cart=[];
 const container = document.querySelector(".container");
-function inject(item) {
+function inject(item, index) {
   container.insertAdjacentHTML(
     "beforeend",
       `<div class="card" data-item="Added to Cart">
@@ -31,8 +31,9 @@ function inject(item) {
         <img class="card-img" src="${item.img}" alt="${item.img}">
         <b><p class="card-price">$${item.Price}</p></b>
       <div class="button-container">
-        <button class="plus">+</button>
-        <button class="minus">-</button>
+        <button onclick="change(${index}, 1)">+</button>
+        <p id="quantity${index}">0</p>
+        <button onclick="change(${index}, -1)">-</button>
         </div>
     </div> `
   );
