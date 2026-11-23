@@ -43,6 +43,7 @@ item.forEach(inject);
 function showCart() {
   document.querySelector(".pop").style.display = "flex";
 }
+showCart
 /* 
 document.querySelector("form").addEventListener("submit", function(event){
     event.preventDefault();
