@@ -41,9 +41,10 @@ function inject(item, index) {
 item.forEach(inject);
 
 function showCart() {
-  document.querySelector(".pop").style.display = "flex";
+  let cartItems = document.querySelector("#cart-items");
+  let total = 0;
 }
-showCart
+
 /* 
 document.querySelector("form").addEventListener("submit", function(event){
     event.preventDefault();
