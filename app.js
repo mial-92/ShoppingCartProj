@@ -21,34 +21,116 @@ let item = [
     {Name: "Olivia Bee", Price: "52.66", Stock: "1", img:"photos/zliverbee.jpg"}
 ]
 
-let Cart=[];
+let cart = {};
+let cartTotal = 0;
 const container = document.querySelector(".container");
 function inject(item, index) {
   container.insertAdjacentHTML(
     "beforeend",
-      `<div class="card" data-item="Added to Cart">
+      `<div class="card" data-item="${index}">
         <h2 class="card-title">${item.Name}</h2>
         <img class="card-img" src="${item.img}" alt="${item.img}">
         <b><p class="card-price">$${item.Price}</p></b>
       <div class="button-container">
-        <button onclick="change(${index}, 1)">+</button>
+        <button class="minus" data-index="${index}">-</button>
         <p id="quantity${index}">0</p>
-        <button onclick="change(${index}, -1)">-</button>
-        </div>
-    </div> `
-  );
-}
+        <button class="add">+</button>
+      </div>
+    </div>`
+  );}
 item.forEach(inject);
 
-function showCart() {
-  let cartItems = document.querySelector("#cart-items");
-  let total = 0;
+
+// ADD BUTTONS
+
+const buttons = document.querySelectorAll(".add");
+buttons.forEach((button) =>
+  button.addEventListener("click", function(event) { // waits for someone to click it
+    let dataItem = event.target.closest(".card").getAttribute("data-item"); 
+    // identifies the button that was clicked, 
+    // finds the product card containing that button, gets that product
+    addToCart(item[dataItem], dataItem);
+  }));
+
+// MINUS BUTTONS
+const minusButtons = document.querySelectorAll(".minus");
+minusButtons.forEach((button) =>
+  button.addEventListener("click", function(event) {
+    let dataItem = event.target.closest(".card").getAttribute("data-item");
+    removeFromCart(item[dataItem], dataItem);
+  }));
+
+// ADD PERFUME TO CART
+function addToCart(item, id) {
+  const entries = document.getElementById("entries"); // finds area where cart products appear
+  if (item.Stock > 0) { //  if the product is in stock
+    if (cart[id]) { //  if product is already in stock
+      if (cart[id].qty < Number(item.Stock)) {
+        cart[id].qty++;
+        cartTotal += Number(item.Price);
+        let entryAmt = document.getElementById(`${id}amt`);
+        let entry = document.getElementById(id);
+        entryAmt.remove();
+        entry.insertAdjacentHTML(
+          "beforeend",
+          `<p id="${id}amt">×${cart[id].qty}</p>`
+        );}
+    } else {
+      cart[id] = item;
+      cart[id].qty = 1;
+      cartTotal += Number(item.Price);
+      entries.insertAdjacentHTML(
+        "beforeend",
+        `<div id="${id}" class="entry">
+          <h2>${item.Name}</h2>
+          <p id="${id}amt">×1</p>
+        </div>`
+      );}
+
+    updateQuantity(id);
+    updateTotal();
+    document.querySelector(".pop").style.display = "block";
+  }}
+
+// REMOVE ONE PERFUME
+function removeFromCart(item, id) {
+  if (cart[id]) {
+    cart[id].qty--;
+    cartTotal -= Number(item.Price);
+    let entry = document.getElementById(id);
+    let entryAmt = document.getElementById(`${id}amt`);
+    entryAmt.remove();
+    if (cart[id].qty > 0) {
+      entry.insertAdjacentHTML(
+        "beforeend",
+        `<p id="${id}amt">×${cart[id].qty}</p>` 
+      );
+    } else {
+      entry.remove(); // removes the product from the cart 
+      delete cart[id]; // deletes the product 
+    }
+    updateQuantity(id);
+    updateTotal();
+    document.querySelector(".pop").style.display = "block";
+  }}
+
+// UPDATE QUANTITY ON PRODUCT CARD
+function updateQuantity(id) {
+  let quantity = document.getElementById("quantity" + id);
+  let number = cart[id] ? cart[id].qty : 0;
+  quantity.insertAdjacentHTML(
+    "afterend", // insert new html immedietly after an element. in this case it would place the updated quantity immedietly after the old one
+    `<p id="quantity${id}">${number}</p>` // created paragraph showing how many perfumes were selected
+  );
+  quantity.remove();
 }
 
-/* 
-document.querySelector("form").addEventListener("submit", function(event){
-    event.preventDefault();
-    document.querySelector("#coupon").value;
-    console.log(x);
-    x.value = "";
-}); */
+// UPDATE CART TOTAL
+function updateTotal() {
+  let total = document.getElementById("total");
+  let totalPrice = document.getElementById("total-price");
+  totalPrice.remove();
+  total.insertAdjacentHTML(
+    "beforeend",
+    `<p id="total-price">${cartTotal.toFixed(2)}</p>`
+  );}
